@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BatBallStumpGame</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        <h1 id="heading">Welcome to the Bat Ball Stump Game.</h1>
+        <hr>
+        <h2>Please select your choice.</h2>
+        <button class="buttons" id="batBtn" onclick="
+        userChoice = 1;
+        computerChoice =Math.ceil(3 * Math.random());
+        if(computerChoice==2) alert (`You won ,computer's choice was ${computerChoice}`);
+        else if(computerChoice==1) alert(`Game Tie ,computer's choice was ${computerChoice}`);
+        else alert(`You lost ,computer's choice was ${computerChoice}`)
+        ">BAT</button>
+        <button class="buttons" id="ballBtn" onclick="
+        userChoice = 2;
+        computerChoice =Math.ceil(3 * Math.random());
+        if(computerChoice==3) alert (`You won ,computer's choice was ${computerChoice}`);
+        else if(computerChoice==2) alert(`Game Tie ,computer's choice was ${computerChoice}`);
+        else alert(`You lost ,computer's choice was ${computerChoice}`)
+        ">BALL</button>
+        <button class="buttons" id="stumpBtn" onclick="
+        userChoice = 3;
+        computerChoice =Math.ceil(3 * Math.random());
+        if(computerChoice==1) alert (`You won ,computer's choice was ${computerChoice}`);
+        else if(computerChoice==3) alert(`Game Tie ,computer's choice was ${computerChoice}`);
+        else alert(`You lost ,computer's choice was ${computerChoice}`)">STUMP</button>
+    </main>
+    <script >
+        let computerChoice = 0;
+        let userChoice = 0;
+    </script>
+</body>
+</html>
