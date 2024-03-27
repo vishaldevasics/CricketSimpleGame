@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BatBallStumpGame</title>
+    <title>RockPaperScissorGame</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
     </header>
     <main>
-        <h1 id="heading">Welcome to the Bat Ball Stump Game.</h1>
+        <h1 id="heading">Welcome to the Rock Paper Scissor Game.</h1>
         <hr>
         <h2>Please select your choice.</h2>
-        <button class="buttons" id="batBtn" onclick="
-        userChoice = 'BAT';
+        <button class="buttons" id="rockBtn" onclick="
+        userChoice = 'ROCK';
         computerChoice = generateComputerChoice();
         alert(score.displayResult(computerChoice,userChoice));
         udpateScore();
-        ">BAT</button>
-        <button class="buttons" id="ballBtn" onclick="
-        userChoice = 'BALL';
+        ">ROCK</button>
+        <button class="buttons" id="paperBtn" onclick="
+        userChoice = 'PAPER';
         computerChoice = generateComputerChoice();
         alert(score.displayResult(computerChoice,userChoice));
         udpateScore();
-        ">BALL</button>
-        <button class="buttons" id="stumpBtn" onclick="
-        userChoice = 'STUMP';
+        ">PAPER</button>
+        <button class="buttons" id="scissorBtn" onclick="
+        userChoice = 'SCISSOR';
         computerChoice = generateComputerChoice();
         alert(score.displayResult(computerChoice,userChoice));
         udpateScore();
-        ">STUMP</button>
+        ">SCISSOR</button>
         <button class="buttons" id="resetbtn" onclick="localStorage.removeItem('Score');
         score.win = 0;
         score.loss = 0;
@@ -57,33 +57,33 @@
         let userChoice = 0;
         function generateComputerChoice(){
             computerChoice = Math.ceil(3 * Math.random());
-            if(computerChoice == 1) return 'BAT';
-            else if(computerChoice == 2) return 'BALL';
-            else return 'STUMP';
+            if(computerChoice == 1) return 'ROCK';
+            else if(computerChoice == 2) return 'PAPER';
+            else return 'SCISSOR';
         }
         function checkResult(userChoice){
             if(computerChoice == userChoice){
                 score.tie++;
                 return 'Game is Tie';
             }
-            else if(computerChoice=='BAT'){
-                if(userChoice == 'BALL'){
+            else if(computerChoice=='ROCK'){
+                if(userChoice == 'SCISSOR'){
                     score.loss++;
                     return 'Computer Won..!';
                 }
                 score.win++;
                 return 'You won..!';
             }
-            else if(computerChoice=='BALL'){
-                if(userChoice == 'STUMP'){
+            else if(computerChoice=='PAPER'){
+                if(userChoice == 'ROCK'){
                     score.loss++;
                     return 'Computer Won..!';
                 }
                 score.win++;
                 return 'You won..!'
             }
-            else if(computerChoice=='STUMP'){
-                if(userChoice == 'BAT'){
+            else if(computerChoice=='SCISSOR'){
+                if(userChoice == 'PAPER'){
                     score.loss++;
                     return 'Computer Won..!';
                 }

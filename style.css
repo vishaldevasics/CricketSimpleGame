@@ -7,16 +7,14 @@ body{
     height: 50px;
     width: 100px;
     border-radius: 15%;
+    border: none;
 }
-#batBtn{
+#rockBtn{
     background-color: aqua;
-    border: none;
 }
-#ballBtn{
+#paperBtn{
     background-color: rgb(255, 0, 140);
-    border: none;
 }
-#stumpBtn{
+#scissorBtn{
     background-color:fuchsia;
-    border: none;
 }
