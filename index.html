@@ -16,31 +16,43 @@
         <button class="buttons" id="batBtn" onclick="
         userChoice = 'BAT';
         computerChoice = generateComputerChoice();
-        alert(displayResult(computerChoice,userChoice));
+        alert(score.displayResult(computerChoice,userChoice));
         udpateScore();
         ">BAT</button>
         <button class="buttons" id="ballBtn" onclick="
         userChoice = 'BALL';
         computerChoice = generateComputerChoice();
-        alert(displayResult(computerChoice,userChoice));
+        alert(score.displayResult(computerChoice,userChoice));
         udpateScore();
         ">BALL</button>
         <button class="buttons" id="stumpBtn" onclick="
         userChoice = 'STUMP';
         computerChoice = generateComputerChoice();
-        alert(displayResult(computerChoice,userChoice));
+        alert(score.displayResult(computerChoice,userChoice));
         udpateScore();
         ">STUMP</button>
+        <button class="buttons" id="resetbtn" onclick="localStorage.removeItem('Score');
+        score.win = 0;
+        score.loss = 0;
+        score.tie = 0;
+        udpateScore();
+        "> New Game.</button>
     </main>
     <footer>
         <h2>The Score is : <span id="userwins">0</span> wins || <span id="userloss">0</span> Losses || <span id="userdraws">0</span> Draws.</h2>
     </footer>
     <script >
-        let score = {
-            win : 0,
-            loss : 0,
-            tie : 0,
-        }
+        
+        let scoreStr = localStorage.getItem('Score');
+        let score = JSON.parse(scoreStr) || {
+                win : 0,
+                loss : 0,
+                tie : 0,   
+            };
+        score.displayResult = function(computerChoice,userChoice){
+                return `Your choice was ${userChoice} and computer's choice was ${computerChoice} so ${checkResult(userChoice)}`;
+            }
+            udpateScore();
         let computerChoice = 0;
         let userChoice = 0;
         function generateComputerChoice(){
@@ -80,13 +92,10 @@
             }
         }
         function udpateScore(){
+            localStorage.setItem('Score',JSON.stringify(score));
             document.querySelector('#userwins').innerHTML = score.win;
             document.querySelector('#userloss').innerHTML = score.loss;
             document.querySelector('#userdraws').innerHTML = score.tie;
-        }
-
-        function displayResult(computerChoice,userChoice){
-            return `Your choice was ${userChoice} and computer's choice was ${computerChoice} so ${checkResult(userChoice)}`
         }
     </script>
 </body>
