@@ -13,32 +13,44 @@
         <h1 id="heading">Welcome to the Rock Paper Scissor Game.</h1>
         <hr>
         <h2>Please select your choice.</h2>
-        <button class="buttons" id="rockBtn" onclick="
+        <img class="buttons" src="Images/rock.png" alt="" height="200" onclick="
         userChoice = 'ROCK';
         computerChoice = generateComputerChoice();
-        alert(score.displayResult(computerChoice,userChoice));
+        document.querySelector('#userchoice').innerHTML = score.displayUserChoice(userChoice);
+        document.querySelector('#computerchoice').innerHTML = score.displayComputerChoice(computerChoice);
+        document.querySelector('#result').innerHTML = score.displayResult(userChoice);
         udpateScore();
-        ">ROCK</button>
-        <button class="buttons" id="paperBtn" onclick="
+        ">
+        <img class="buttons" src="Images/paper.jpg" alt="" height="200" onclick="
         userChoice = 'PAPER';
         computerChoice = generateComputerChoice();
-        alert(score.displayResult(computerChoice,userChoice));
+        document.querySelector('#userchoice').innerHTML = score.displayUserChoice(userChoice);
+        document.querySelector('#computerchoice').innerHTML = score.displayComputerChoice(computerChoice);
+        document.querySelector('#result').innerHTML = score.displayResult(userChoice);
         udpateScore();
-        ">PAPER</button>
-        <button class="buttons" id="scissorBtn" onclick="
+        ">
+        <img class="buttons" src="Images/scissors.png" alt="" height="200" onclick="
         userChoice = 'SCISSOR';
         computerChoice = generateComputerChoice();
-        alert(score.displayResult(computerChoice,userChoice));
+        document.querySelector('#userchoice').innerHTML = score.displayUserChoice(userChoice);
+        document.querySelector('#computerchoice').innerHTML = score.displayComputerChoice(computerChoice);
+        document.querySelector('#result').innerHTML = score.displayResult(userChoice);
         udpateScore();
-        ">SCISSOR</button>
-        <button class="buttons" id="resetbtn" onclick="localStorage.removeItem('Score');
+        ">
+        <img class="buttons" src="Images/reset.png" alt="" height="200px" onclick="localStorage.removeItem('Score');
         score.win = 0;
         score.loss = 0;
         score.tie = 0;
         udpateScore();
-        "> New Game.</button>
+        document.querySelector('#userchoice').innerHTML = '';
+        document.querySelector('#computerchoice').innerHTML = '';
+        document.querySelector('#result').innerHTML = '';
+        ">
     </main>
     <footer>
+        <h3 id="userchoice"></h3>
+        <h3 id="computerchoice"></h3>
+        <h2 id="result"></h2>
         <h2>The Score is : <span id="userwins">0</span> wins || <span id="userloss">0</span> Losses || <span id="userdraws">0</span> Draws.</h2>
     </footer>
     <script >
@@ -49,9 +61,15 @@
                 loss : 0,
                 tie : 0,   
             };
-        score.displayResult = function(computerChoice,userChoice){
-                return `Your choice was ${userChoice} and computer's choice was ${computerChoice} so ${checkResult(userChoice)}`;
-            }
+        score.displayUserChoice = function(userChoice){
+                return `Your choice was ${userChoice} `;
+        }
+        score.displayComputerChoice = function(computerChoice){
+            return `Computer's choice was ${computerChoice}`    
+        }
+        score.displayResult = function(userChoice){
+                return `${checkResult(userChoice)}`;
+        }
             udpateScore();
         let computerChoice = 0;
         let userChoice = 0;

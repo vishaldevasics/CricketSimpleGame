@@ -1,20 +1,20 @@
 body{
     text-align: center;
-    background-color: #212121;
-    color: #fff;
+    background-color:beige;
+    color: black;
 }
 .buttons{
-    height: 50px;
-    width: 100px;
-    border-radius: 15%;
-    border: none;
+    margin: 20px;
 }
-#rockBtn{
-    background-color: aqua;
+#userwins{
+    color: rgb(96, 235, 96);
 }
-#paperBtn{
-    background-color: rgb(255, 0, 140);
+#userloss{
+    color: rgb(232, 21, 21);
 }
-#scissorBtn{
-    background-color:fuchsia;
+#userdraws{
+    color: rgb(19, 33, 105);
+}
+#result{
+    color: rgb(56, 4, 47);
 }
